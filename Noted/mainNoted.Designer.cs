@@ -35,6 +35,7 @@
             this.textFileName = new System.Windows.Forms.TextBox();
             this.FileName = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // noteBox
@@ -92,12 +93,25 @@
             this.FileName.TabIndex = 6;
             this.FileName.Text = "File Name";
             // 
+            // deleteButton
+            // 
+            this.deleteButton.BackColor = System.Drawing.SystemColors.Window;
+            this.deleteButton.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.deleteButton.Location = new System.Drawing.Point(12, 40);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(148, 23);
+            this.deleteButton.TabIndex = 7;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // Noted
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(660, 341);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.FileName);
             this.Controls.Add(this.textFileName);
             this.Controls.Add(this.saveButton);
@@ -119,5 +133,6 @@
         public TextBox textFileName;
         public Label FileName;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        public Button deleteButton;
     }
 }
