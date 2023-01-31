@@ -25,6 +25,15 @@ namespace Noted
         // Clearing note
         private void newButton_Click(object sender, EventArgs e) => newNote();
 
+        // Bold text
+        private void buttonBold_Click(object sender, EventArgs e) => boldText();
+        
+        // Italic text
+        private void italicButton_Click(object sender, EventArgs e) => italicText();
+       
+        // Underline text
+        private void underlineButton_Click(object sender, EventArgs e) => underlineText();
+        
         public void saveNotes()
         {
             // Check if the file name or note content text boxes are empty
@@ -196,6 +205,31 @@ namespace Noted
                 MessageBox.Show("Error renaming file: " + ex.Message);
             }
         }
+
+        public void boldText()
+        {
+            if (noteBox.SelectionFont == null) return;
+            Font oldFont = noteBox.SelectionFont;
+            Font newFont = new Font(oldFont, oldFont.Style ^ FontStyle.Bold);
+            noteBox.SelectionFont = newFont;
+        }
+
+        public void italicText()
+        {
+            if (noteBox.SelectionFont == null) return;
+            Font oldFont = noteBox.SelectionFont;
+            Font newFont = new Font(oldFont, oldFont.Style ^ FontStyle.Italic);
+            noteBox.SelectionFont = newFont;
+        }
+
+        public void underlineText()
+        {
+            if (noteBox.SelectionFont == null) return;
+            Font oldFont = noteBox.SelectionFont;
+            Font newFont = new Font(oldFont, oldFont.Style ^ FontStyle.Underline);
+            noteBox.SelectionFont = newFont;
+        }
+
         // Clearing file name and text note
         public void newNote()
         {
