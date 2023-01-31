@@ -1,5 +1,3 @@
-
-
 namespace Noted
 {
     public partial class Noted : Form
@@ -9,6 +7,7 @@ namespace Noted
         public Noted()
         {
             InitializeComponent();
+            loadNotes();
 
             listBoxNotes.SelectedIndexChanged += new EventHandler(listBoxNotes_SelectedIndexChanged);
         }
@@ -18,13 +17,14 @@ namespace Noted
             saveNotes();
         }
 
-        private void loadButton_Click(object sender, EventArgs e)
-        {
-            loadNotes();
-        }
-
         public void saveNotes()
         {
+            if (string.IsNullOrEmpty(textFileName.Text) || string.IsNullOrEmpty(noteBox.Text))
+            {
+                MessageBox.Show("Cannot save a blank note");
+                return;
+            }
+
             string folderName = "Noted";
             string fileName = textFileName.Text;
             string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), folderName);
@@ -34,9 +34,10 @@ namespace Noted
             try
             {
                 File.WriteAllText(filePath, textToSave);
+                dictionaryNotes[fileName] = textToSave;
+                listBoxNotes.Items.Add(fileName);
                 MessageBox.Show("Note succesfully saved!");
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show("Error saving note: " + ex.Message);
@@ -62,7 +63,6 @@ namespace Noted
                     MessageBox.Show("No notes found.");
                     return;
                 }
-
                 foreach (string filePath in files)
                 {
                     string fileName = Path.GetFileNameWithoutExtension(filePath);
@@ -70,14 +70,13 @@ namespace Noted
                     listBoxNotes.Items.Add(fileName);
                     dictionaryNotes.Add(fileName, textLoaded);
                 }
-
-                MessageBox.Show("Notes loaded successfully.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading notes: " + ex.Message);
             }
         }
+
         private void listBoxNotes_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxNotes.SelectedItem != null)
