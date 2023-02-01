@@ -25,6 +25,8 @@ namespace Noted
         // Clearing note
         private void newButton_Click(object sender, EventArgs e) => newNote();
 
+        private void editButton_Click(object sender, EventArgs e) => editNote();
+
         // Bold text
         private void buttonBold_Click(object sender, EventArgs e) => boldText();
         
@@ -33,7 +35,11 @@ namespace Noted
        
         // Underline text
         private void underlineButton_Click(object sender, EventArgs e) => underlineText();
-        
+
+        // Show text when a note selected
+        private void listBoxNotes_SelectedIndexChanged(object sender, EventArgs e) => showTextSelectedNote();
+
+
         public void saveNotes()
         {
             // Check if the file name or note content text boxes are empty
@@ -48,7 +54,7 @@ namespace Noted
             string fileName = textFileName.Text;
             string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), folderName);
             string filePath = Path.Combine(folderPath, fileName + ".txt");
-            string textToSave = noteBox.Text;
+            string textToSave = noteBox.Rtf;
 
             // Check if there is same file with that name
             if (listBoxNotes.Items.Contains(fileName))
@@ -206,7 +212,48 @@ namespace Noted
             }
         }
 
-        public void boldText()
+        public void editNote()
+        {
+            if (listBoxNotes.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a note to edit.");
+                return;
+            }
+
+            string folderName = "Noted";
+            string fileName = listBoxNotes.SelectedItem.ToString();
+            string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), folderName);
+            string filePath = Path.Combine(folderPath, fileName + ".txt");
+            string textToSave = noteBox.Rtf;
+
+            try
+            {
+                // Edit note
+                File.WriteAllText(filePath, textToSave);
+                // Clearing the note list so that it wont thrown an error
+                listBoxNotes.Items.Clear();
+                dictionaryNotes.Clear();
+                // Loading back the updated note list
+                loadNotes();
+                MessageBox.Show("Note succesfully saved!");
+            }
+            catch (Exception ex)
+            {
+                // Show an error message if there was an exception
+                MessageBox.Show("Error saving note: " + ex.Message);
+            }
+        }
+
+        public void showTextSelectedNote()
+        {
+            // Show note content when selected
+            if (listBoxNotes.SelectedItem != null)
+            {
+                string selectedNote = listBoxNotes.SelectedItem.ToString();
+                noteBox.Rtf = dictionaryNotes[selectedNote];
+            }
+        }
+            public void boldText()
         {
             if (noteBox.SelectionFont == null) return;
             Font oldFont = noteBox.SelectionFont;
@@ -235,16 +282,6 @@ namespace Noted
         {
             noteBox.Text = "";
             textFileName.Text = "";
-        }
-
-        private void listBoxNotes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Show note content when selected
-            if (listBoxNotes.SelectedItem != null)
-            {
-                string selectedNote = listBoxNotes.SelectedItem.ToString();
-                noteBox.Text = dictionaryNotes[selectedNote];
-            }
         }
     }
 }
