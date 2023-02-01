@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Noted));
             this.noteBox = new System.Windows.Forms.RichTextBox();
             this.listBoxNotes = new System.Windows.Forms.ListBox();
-            this.saveButton = new System.Windows.Forms.Button();
+            this.createButton = new System.Windows.Forms.Button();
             this.textFileName = new System.Windows.Forms.TextBox();
             this.FileName = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -41,7 +41,7 @@
             this.buttonBold = new System.Windows.Forms.Button();
             this.italicButton = new System.Windows.Forms.Button();
             this.underlineButton = new System.Windows.Forms.Button();
-            this.editButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // noteBox
@@ -52,9 +52,9 @@
             this.noteBox.BackColor = System.Drawing.SystemColors.Window;
             this.noteBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.noteBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.noteBox.Location = new System.Drawing.Point(12, 134);
+            this.noteBox.Location = new System.Drawing.Point(12, 101);
             this.noteBox.Name = "noteBox";
-            this.noteBox.Size = new System.Drawing.Size(455, 256);
+            this.noteBox.Size = new System.Drawing.Size(524, 289);
             this.noteBox.TabIndex = 4;
             this.noteBox.Text = "";
             // 
@@ -68,22 +68,23 @@
             this.listBoxNotes.FormattingEnabled = true;
             this.listBoxNotes.HorizontalScrollbar = true;
             this.listBoxNotes.ItemHeight = 15;
-            this.listBoxNotes.Location = new System.Drawing.Point(473, 11);
+            this.listBoxNotes.Location = new System.Drawing.Point(542, 11);
             this.listBoxNotes.Name = "listBoxNotes";
             this.listBoxNotes.Size = new System.Drawing.Size(254, 379);
             this.listBoxNotes.TabIndex = 1;
             // 
-            // saveButton
+            // createButton
             // 
-            this.saveButton.BackColor = System.Drawing.SystemColors.Window;
-            this.saveButton.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.saveButton.Location = new System.Drawing.Point(12, 12);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(148, 25);
-            this.saveButton.TabIndex = 2;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = false;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.createButton.BackColor = System.Drawing.SystemColors.Window;
+            this.createButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.createButton.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.createButton.Location = new System.Drawing.Point(12, 12);
+            this.createButton.Name = "createButton";
+            this.createButton.Size = new System.Drawing.Size(100, 25);
+            this.createButton.TabIndex = 2;
+            this.createButton.Text = "Create";
+            this.createButton.UseVisualStyleBackColor = false;
+            this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
             // textFileName
             // 
@@ -92,9 +93,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textFileName.BackColor = System.Drawing.SystemColors.Window;
             this.textFileName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textFileName.Location = new System.Drawing.Point(12, 105);
+            this.textFileName.Location = new System.Drawing.Point(12, 72);
             this.textFileName.Name = "textFileName";
-            this.textFileName.Size = new System.Drawing.Size(455, 23);
+            this.textFileName.Size = new System.Drawing.Size(524, 23);
             this.textFileName.TabIndex = 5;
             // 
             // FileName
@@ -103,7 +104,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FileName.AutoSize = true;
-            this.FileName.Location = new System.Drawing.Point(12, 80);
+            this.FileName.Location = new System.Drawing.Point(12, 47);
             this.FileName.Name = "FileName";
             this.FileName.Size = new System.Drawing.Size(60, 15);
             this.FileName.TabIndex = 6;
@@ -112,10 +113,11 @@
             // deleteButton
             // 
             this.deleteButton.BackColor = System.Drawing.SystemColors.Window;
+            this.deleteButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deleteButton.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.deleteButton.Location = new System.Drawing.Point(320, 45);
+            this.deleteButton.Location = new System.Drawing.Point(333, 12);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(148, 25);
+            this.deleteButton.Size = new System.Drawing.Size(100, 25);
             this.deleteButton.TabIndex = 7;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = false;
@@ -124,10 +126,11 @@
             // renameButton
             // 
             this.renameButton.BackColor = System.Drawing.SystemColors.Window;
+            this.renameButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.renameButton.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.renameButton.Location = new System.Drawing.Point(166, 12);
+            this.renameButton.Location = new System.Drawing.Point(227, 12);
             this.renameButton.Name = "renameButton";
-            this.renameButton.Size = new System.Drawing.Size(148, 25);
+            this.renameButton.Size = new System.Drawing.Size(100, 25);
             this.renameButton.TabIndex = 8;
             this.renameButton.Text = "Rename";
             this.renameButton.UseVisualStyleBackColor = false;
@@ -136,10 +139,11 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Window;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.button1.Location = new System.Drawing.Point(320, 12);
+            this.button1.Location = new System.Drawing.Point(436, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 25);
+            this.button1.Size = new System.Drawing.Size(100, 25);
             this.button1.TabIndex = 9;
             this.button1.Text = "New";
             this.button1.UseVisualStyleBackColor = false;
@@ -148,8 +152,9 @@
             // buttonBold
             // 
             this.buttonBold.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonBold.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBold.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.buttonBold.Location = new System.Drawing.Point(389, 76);
+            this.buttonBold.Location = new System.Drawing.Point(248, 43);
             this.buttonBold.Name = "buttonBold";
             this.buttonBold.Size = new System.Drawing.Size(79, 23);
             this.buttonBold.TabIndex = 10;
@@ -160,8 +165,9 @@
             // italicButton
             // 
             this.italicButton.BackColor = System.Drawing.SystemColors.Window;
+            this.italicButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.italicButton.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.italicButton.Location = new System.Drawing.Point(304, 76);
+            this.italicButton.Location = new System.Drawing.Point(163, 43);
             this.italicButton.Name = "italicButton";
             this.italicButton.Size = new System.Drawing.Size(79, 23);
             this.italicButton.TabIndex = 11;
@@ -172,8 +178,9 @@
             // underlineButton
             // 
             this.underlineButton.BackColor = System.Drawing.SystemColors.Window;
+            this.underlineButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.underlineButton.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.underlineButton.Location = new System.Drawing.Point(219, 76);
+            this.underlineButton.Location = new System.Drawing.Point(78, 43);
             this.underlineButton.Name = "underlineButton";
             this.underlineButton.Size = new System.Drawing.Size(79, 23);
             this.underlineButton.TabIndex = 12;
@@ -181,25 +188,26 @@
             this.underlineButton.UseVisualStyleBackColor = false;
             this.underlineButton.Click += new System.EventHandler(this.underlineButton_Click);
             // 
-            // editButton
+            // saveButton
             // 
-            this.editButton.BackColor = System.Drawing.SystemColors.Window;
-            this.editButton.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.editButton.Location = new System.Drawing.Point(12, 45);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(148, 25);
-            this.editButton.TabIndex = 14;
-            this.editButton.Text = "Edit";
-            this.editButton.UseVisualStyleBackColor = false;
-            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            this.saveButton.BackColor = System.Drawing.SystemColors.Window;
+            this.saveButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.saveButton.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.saveButton.Location = new System.Drawing.Point(118, 12);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(100, 25);
+            this.saveButton.TabIndex = 14;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // Noted
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(739, 402);
-            this.Controls.Add(this.editButton);
+            this.ClientSize = new System.Drawing.Size(808, 402);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.underlineButton);
             this.Controls.Add(this.italicButton);
             this.Controls.Add(this.buttonBold);
@@ -208,7 +216,7 @@
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.FileName);
             this.Controls.Add(this.textFileName);
-            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.createButton);
             this.Controls.Add(this.listBoxNotes);
             this.Controls.Add(this.noteBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -223,7 +231,7 @@
 
         public RichTextBox noteBox;
         public ListBox listBoxNotes;
-        public Button saveButton;
+        public Button createButton;
         public TextBox textFileName;
         public Label FileName;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
@@ -233,6 +241,6 @@
         private Button buttonBold;
         private Button italicButton;
         private Button underlineButton;
-        public Button editButton;
+        public Button saveButton;
     }
 }

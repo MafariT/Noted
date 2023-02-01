@@ -14,7 +14,7 @@ namespace Noted
         }
 
         // Saving note
-        private void saveButton_Click(object sender, EventArgs e) => saveNotes();
+        private void createButton_Click(object sender, EventArgs e) => createNotes();
 
         // Delete note
         private void deleteButton_Click(object sender, EventArgs e) => deleteNote();
@@ -25,27 +25,26 @@ namespace Noted
         // Clearing note
         private void newButton_Click(object sender, EventArgs e) => newNote();
 
-        private void editButton_Click(object sender, EventArgs e) => editNote();
+        private void saveButton_Click(object sender, EventArgs e) => saveNote();
 
         // Bold text
         private void buttonBold_Click(object sender, EventArgs e) => boldText();
-        
+
         // Italic text
         private void italicButton_Click(object sender, EventArgs e) => italicText();
-       
+
         // Underline text
         private void underlineButton_Click(object sender, EventArgs e) => underlineText();
 
         // Show text when a note selected
         private void listBoxNotes_SelectedIndexChanged(object sender, EventArgs e) => showTextSelectedNote();
 
-
-        public void saveNotes()
+        public void createNotes()
         {
             // Check if the file name or note content text boxes are empty
             if (string.IsNullOrEmpty(textFileName.Text) || string.IsNullOrEmpty(noteBox.Text))
             {
-                MessageBox.Show("Cannot save a blank note");
+                MessageBox.Show("Cannot create a blank note");
                 return;
             }
 
@@ -74,7 +73,7 @@ namespace Noted
                 // Clearing file name
                 textFileName.Text = "";
                 // Show a success message
-                MessageBox.Show("Note succesfully saved!");
+                MessageBox.Show("Note succesfully created!");
             }
             catch (Exception ex)
             {
@@ -154,7 +153,6 @@ namespace Noted
                     textFileName.Text = "";
                     // Clearing text
                     noteBox.Text = "";
-                    MessageBox.Show("Note deleted successfully.");
                 }
                 catch (Exception ex)
                 {
@@ -212,7 +210,7 @@ namespace Noted
             }
         }
 
-        public void editNote()
+        public void saveNote()
         {
             if (listBoxNotes.SelectedItem == null)
             {
@@ -253,7 +251,8 @@ namespace Noted
                 noteBox.Rtf = dictionaryNotes[selectedNote];
             }
         }
-            public void boldText()
+
+        public void boldText()
         {
             if (noteBox.SelectionFont == null) return;
             Font oldFont = noteBox.SelectionFont;
