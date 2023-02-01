@@ -12,31 +12,23 @@ namespace Noted
             // Event handler for when a note is selected from the list box
             listBoxNotes.SelectedIndexChanged += new EventHandler(listBoxNotes_SelectedIndexChanged);
         }
-
-        // Saving note
+        // Buttons
         private void createButton_Click(object sender, EventArgs e) => createNotes();
 
-        // Delete note
         private void deleteButton_Click(object sender, EventArgs e) => deleteNote();
 
-        // Rename note
         private void renameButton_Click(object sender, EventArgs e) => renameNote();
 
-        // Clearing note
         private void newButton_Click(object sender, EventArgs e) => newNote();
 
         private void saveButton_Click(object sender, EventArgs e) => saveNote();
 
-        // Bold text
         private void buttonBold_Click(object sender, EventArgs e) => boldText();
 
-        // Italic text
         private void italicButton_Click(object sender, EventArgs e) => italicText();
 
-        // Underline text
         private void underlineButton_Click(object sender, EventArgs e) => underlineText();
 
-        // Show text when a note selected
         private void listBoxNotes_SelectedIndexChanged(object sender, EventArgs e) => showTextSelectedNote();
 
         public void createNotes()
@@ -47,21 +39,18 @@ namespace Noted
                 MessageBox.Show("Cannot create a blank note");
                 return;
             }
-
             // Define the folder and file path to save the note
             string folderName = "Noted";
             string fileName = textFileName.Text;
             string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), folderName);
             string filePath = Path.Combine(folderPath, fileName + ".txt");
             string textToSave = noteBox.Rtf;
-
             // Check if there is same file with that name
             if (listBoxNotes.Items.Contains(fileName))
             {
                 MessageBox.Show("File already exists with that name.");
                 return;
             }
-
             try
             {
                 // Save the note to the file path
@@ -93,7 +82,6 @@ namespace Noted
             {
                 Directory.CreateDirectory(folderPath);
             }
-
             try
             {
                 // Get the text files from the folder
@@ -169,7 +157,6 @@ namespace Noted
                 MessageBox.Show("Please select a note to rename.");
                 return;
             }
-
             string selectedFile = listBoxNotes.SelectedItem.ToString();
             string newFileName = Microsoft.VisualBasic.Interaction.InputBox("Enter a new name for the file:", "Rename File", selectedFile);
 
@@ -178,19 +165,16 @@ namespace Noted
                 MessageBox.Show("Invalid file name.");
                 return;
             }
-
             if (listBoxNotes.Items.Contains(newFileName))
             {
                 MessageBox.Show("File already exists with that name.");
                 return;
             }
-
             //  Define the folder path to rename note
             string folderName = "Noted";
             string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), folderName);
             string oldFilePath = Path.Combine(folderPath, selectedFile + ".txt");
             string newFilePath = Path.Combine(folderPath, newFileName + ".txt");
-
             try
             {
                 // Replacing old note with the new note
@@ -217,13 +201,11 @@ namespace Noted
                 MessageBox.Show("Please select a note to edit.");
                 return;
             }
-
             string folderName = "Noted";
             string fileName = listBoxNotes.SelectedItem.ToString();
             string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), folderName);
             string filePath = Path.Combine(folderPath, fileName + ".txt");
             string textToSave = noteBox.Rtf;
-
             try
             {
                 // Edit note

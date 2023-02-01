@@ -104,7 +104,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FileName.AutoSize = true;
-            this.FileName.Location = new System.Drawing.Point(12, 47);
+            this.FileName.Location = new System.Drawing.Point(12, 54);
             this.FileName.Name = "FileName";
             this.FileName.Size = new System.Drawing.Size(60, 15);
             this.FileName.TabIndex = 6;
@@ -151,10 +151,11 @@
             // 
             // buttonBold
             // 
+            this.buttonBold.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonBold.BackColor = System.Drawing.SystemColors.Window;
             this.buttonBold.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBold.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.buttonBold.Location = new System.Drawing.Point(248, 43);
+            this.buttonBold.Location = new System.Drawing.Point(457, 43);
             this.buttonBold.Name = "buttonBold";
             this.buttonBold.Size = new System.Drawing.Size(79, 23);
             this.buttonBold.TabIndex = 10;
@@ -164,10 +165,11 @@
             // 
             // italicButton
             // 
+            this.italicButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.italicButton.BackColor = System.Drawing.SystemColors.Window;
             this.italicButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.italicButton.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.italicButton.Location = new System.Drawing.Point(163, 43);
+            this.italicButton.Location = new System.Drawing.Point(372, 43);
             this.italicButton.Name = "italicButton";
             this.italicButton.Size = new System.Drawing.Size(79, 23);
             this.italicButton.TabIndex = 11;
@@ -177,10 +179,11 @@
             // 
             // underlineButton
             // 
+            this.underlineButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.underlineButton.BackColor = System.Drawing.SystemColors.Window;
             this.underlineButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.underlineButton.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.underlineButton.Location = new System.Drawing.Point(78, 43);
+            this.underlineButton.Location = new System.Drawing.Point(287, 43);
             this.underlineButton.Name = "underlineButton";
             this.underlineButton.Size = new System.Drawing.Size(79, 23);
             this.underlineButton.TabIndex = 12;
