@@ -232,18 +232,18 @@
 
         #endregion
 
-        public RichTextBox noteBox;
-        public ListBox listBoxNotes;
-        public Button createButton;
-        public TextBox textFileName;
-        public Label FileName;
+        private RichTextBox noteBox;
+        private ListBox listBoxNotes;
+        private Button createButton;
+        private TextBox textFileName;
+        private Label FileName;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        public Button deleteButton;
-        public Button renameButton;
-        public Button button1;
+        private Button deleteButton;
+        private Button renameButton;
+        private Button button1;
         private Button buttonBold;
         private Button italicButton;
         private Button underlineButton;
-        public Button saveButton;
+        private Button saveButton;
     }
 }
